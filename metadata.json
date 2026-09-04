@@ -1,0 +1,6 @@
+{
+  "name": "Firulais — Cuidado de Mascotas",
+  "description": "Plataforma integral para mascotas en Venezuela: Farmacia veterinaria express, comparador de seguros y servicio especializado de Taxi Pet.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

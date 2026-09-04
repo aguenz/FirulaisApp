@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <script>
+      (function () {
+        try {
+          const originalFetch = window.fetch ? window.fetch.bind(window) : undefined;
+          let currentFetch = originalFetch;
+          const propConfig = {
+            get() {
+              return currentFetch || (window.fetch !== currentFetch ? window.fetch : originalFetch);
+            },
+            set(fn) {
+              currentFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          };
+          try {
+            Object.defineProperty(window, 'fetch', propConfig);
+          } catch (err) {}
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', propConfig);
+            } catch (err) {}
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firulais — Cuidado de Mascotas | Farmacia, Seguros y Taxi Pet en Venezuela</title>
+    <meta name="description" content="Plataforma integral para mascotas en Venezuela: Farmacia veterinaria express, comparador de seguros y servicio especializado de Taxi Pet." />
+    <meta property="og:title" content="Firulais — Cuidado de Mascotas" />
+    <meta property="og:description" content="Plataforma integral para mascotas en Venezuela: Farmacia veterinaria express, comparador de seguros y servicio especializado de Taxi Pet." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#FAFAF7] text-[#152018] antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
